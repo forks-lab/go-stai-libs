@@ -1,3 +1,7 @@
+# Note
+
+This is a modified version of Go Chia Libs. It was created by refactoring of main branch (e452ed9).
+
 # Go STAI Libs
 
 STAI Blockchain Go Libraries
