@@ -12,13 +12,13 @@ import (
 
 	"github.com/google/go-querystring/query"
 
-	"github.com/chia-network/go-chia-libs/pkg/config"
-	"github.com/chia-network/go-chia-libs/pkg/rpcinterface"
+	"github.com/forks-lab/go-stai-libs/pkg/config"
+	"github.com/forks-lab/go-stai-libs/pkg/rpcinterface"
 )
 
-// HTTPClient connects to Chia RPC via standard HTTP requests
+// HTTPClient connects to STAI RPC via standard HTTP requests
 type HTTPClient struct {
-	config  *config.ChiaConfig
+	config  *config.StaiConfig
 	baseURL *url.URL
 
 	// If set > 0, will configure http requests with a cache
@@ -46,7 +46,7 @@ type HTTPClient struct {
 }
 
 // NewHTTPClient returns a new HTTP client that satisfies the rpcinterface.Client interface
-func NewHTTPClient(cfg *config.ChiaConfig, options ...rpcinterface.ClientOptionFunc) (*HTTPClient, error) {
+func NewHTTPClient(cfg *config.StaiConfig, options ...rpcinterface.ClientOptionFunc) (*HTTPClient, error) {
 	c := &HTTPClient{
 		config: cfg,
 
@@ -281,7 +281,7 @@ func (c *HTTPClient) generateHTTPClientForService(service rpcinterface.ServiceTy
 	transport = &http.Transport{
 		TLSClientConfig: &tls.Config{
 			Certificates:       []tls.Certificate{*keyPair},
-			InsecureSkipVerify: true, // Cert is apparently for chia.net - can't validate until it matches hostname
+			InsecureSkipVerify: true, // Cert is apparently for stai.global - can't validate until it matches hostname
 		},
 	}
 

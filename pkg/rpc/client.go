@@ -4,20 +4,20 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/chia-network/go-chia-libs/pkg/config"
-	"github.com/chia-network/go-chia-libs/pkg/httpclient"
-	"github.com/chia-network/go-chia-libs/pkg/rpcinterface"
-	"github.com/chia-network/go-chia-libs/pkg/types"
-	"github.com/chia-network/go-chia-libs/pkg/websocketclient"
+	"github.com/forks-lab/go-stai-libs/pkg/config"
+	"github.com/forks-lab/go-stai-libs/pkg/httpclient"
+	"github.com/forks-lab/go-stai-libs/pkg/rpcinterface"
+	"github.com/forks-lab/go-stai-libs/pkg/types"
+	"github.com/forks-lab/go-stai-libs/pkg/websocketclient"
 )
 
 // Client is the RPC client
 type Client struct {
-	config *config.ChiaConfig
+	config *config.StaiConfig
 
 	activeClient rpcinterface.Client
 
-	// Services for the different chia services
+	// Services for the different STAI services
 	FullNodeService  *FullNodeService
 	WalletService    *WalletService
 	HarvesterService *HarvesterService
@@ -39,7 +39,7 @@ const (
 
 // NewClient returns a new RPC Client
 func NewClient(connectionMode ConnectionMode, options ...rpcinterface.ClientOptionFunc) (*Client, error) {
-	cfg, err := config.GetChiaConfig()
+	cfg, err := config.GetStaiConfig()
 	if err != nil {
 		return nil, err
 	}

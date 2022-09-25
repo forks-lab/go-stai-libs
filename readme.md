@@ -1,6 +1,6 @@
-# Go Chia Libs
+# Go STAI Libs
 
-Chia Blockchain Go Libraries
+STAI Blockchain Go Libraries
 
-* [Config](pkg/config/) - Parses Chia config to a go struct
-* [RPC Client](pkg/rpc/) - Client for interacting with Chia RPCs via HTTP requests or Websockets
+* [Config](pkg/config/) - Parses STAI config to a go struct
+* [RPC Client](pkg/rpc/) - Client for interacting with STAI RPCs via HTTP requests or Websockets

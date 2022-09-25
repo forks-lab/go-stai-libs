@@ -6,8 +6,8 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/chia-network/go-chia-libs/pkg/bech32m"
-	"github.com/chia-network/go-chia-libs/pkg/types"
+	"github.com/forks-lab/go-stai-libs/pkg/bech32m"
+	"github.com/forks-lab/go-stai-libs/pkg/types"
 )
 
 func TestKnownAddressConversions(t *testing.T) {

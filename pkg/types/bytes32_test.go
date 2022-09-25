@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/chia-network/go-chia-libs/pkg/types"
+	"github.com/forks-lab/go-stai-libs/pkg/types"
 )
 
 func TestBytesToBytes32(t *testing.T) {

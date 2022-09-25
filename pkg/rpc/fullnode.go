@@ -3,8 +3,8 @@ package rpc
 import (
 	"net/http"
 
-	"github.com/chia-network/go-chia-libs/pkg/rpcinterface"
-	"github.com/chia-network/go-chia-libs/pkg/types"
+	"github.com/forks-lab/go-stai-libs/pkg/rpcinterface"
+	"github.com/forks-lab/go-stai-libs/pkg/types"
 )
 
 // FullNodeService encapsulates full node RPC methods

@@ -30,7 +30,7 @@ const (
 )
 
 // IPAddress wraps net.IP so we can fix unmarshalling issues
-// due to invalid [] wrapping ipv6 addresses in Chia RPC
+// due to invalid [] wrapping ipv6 addresses in STAI RPC
 type IPAddress struct {
 	net.IP
 }

@@ -8,7 +8,7 @@ import (
 
 // LoadPrivateKeyPair loads the private key pair for the SSLConfig
 func (s *SSLConfig) LoadPrivateKeyPair() (*tls.Certificate, error) {
-	rootPath, err := GetChiaRootPath()
+	rootPath, err := GetStaiRootPath()
 	if err != nil {
 		return nil, err
 	}
@@ -23,7 +23,7 @@ func (s *SSLConfig) LoadPrivateKeyPair() (*tls.Certificate, error) {
 
 // LoadPublicKeyPair loads the public key pair for the SSLConfig
 func (s *SSLConfig) LoadPublicKeyPair() (*tls.Certificate, error) {
-	rootPath, err := GetChiaRootPath()
+	rootPath, err := GetStaiRootPath()
 	if err != nil {
 		return nil, err
 	}

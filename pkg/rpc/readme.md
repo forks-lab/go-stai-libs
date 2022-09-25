@@ -1,10 +1,10 @@
-# Go Chia RPC
+# Go STAI RPC
 
-Library for interacting with Chia RPC. Supports both HTTP and Websocket communications.
+Library for interacting with STAI RPC. Supports both HTTP and Websocket communications.
 
 ## Usage
 
-When creating a new client, chia configuration will automatically be read from `CHIA_ROOT`. If chia is installed for the same user go-chia-rpc is running as, the config should be automatically discovered if it is in the default location. If the config is in a non-standard location, ensure `CHIA_ROOT` environment variable is set to the same value that is used for chia-blockchain.
+When creating a new client, STAI configuration will automatically be read from `STAI_ROOT`. If STAI is installed for the same user go-stai-rpc is running as, the config should be automatically discovered if it is in the default location. If the config is in a non-standard location, ensure `STAI_ROOT` environment variable is set to the same value that is used for stai-blockchain.
 
 ### HTTP Mode
 
@@ -14,7 +14,7 @@ To use HTTP mode, create a new client and specify `ConnectionModeHTTP`:
 package main
 
 import (
-	"github.com/chia-network/go-chia-libs/pkg/rpc"
+	"github.com/forks-lab/go-stai-libs/pkg/rpc"
 )
 
 func main() {
@@ -33,7 +33,7 @@ To use Websocket mode, specify ConnectionModeWebsocket when creating the client:
 package main
 
 import (
-	"github.com/chia-network/go-chia-libs/pkg/rpc"
+	"github.com/forks-lab/go-stai-libs/pkg/rpc"
 )
 
 func main() {
@@ -57,8 +57,8 @@ package main
 
 import (
 	"log"
-	"github.com/chia-network/go-chia-libs/pkg/rpc"
-	"github.com/chia-network/go-chia-libs/pkg/types"
+	"github.com/forks-lab/go-stai-libs/pkg/rpc"
+	"github.com/forks-lab/go-stai-libs/pkg/types"
 )
 
 func main() {
@@ -85,8 +85,8 @@ package main
 import (
 	"log"
 
-	"github.com/chia-network/go-chia-libs/pkg/rpc"
-	"github.com/chia-network/go-chia-libs/pkg/types"
+	"github.com/forks-lab/go-stai-libs/pkg/rpc"
+	"github.com/forks-lab/go-stai-libs/pkg/types"
 )
 
 func main() {
@@ -111,7 +111,7 @@ There are two helper functions to subscribe to events that come over the websock
 
 `client.SubscribeSelf()` - Calling this method subscribes to response events for any requests made from this client
 
-`client.Subscribe(service)` - Calling this method, with an appropriate service, subscribes to any events that chia may generate that are not necessarily in responses to requests made from this client (for instance, `metrics` events fire when relevant updates are available that may impact metrics services)
+`client.Subscribe(service)` - Calling this method, with an appropriate service, subscribes to any events that STAI may generate that are not necessarily in responses to requests made from this client (for instance, `metrics` events fire when relevant updates are available that may impact metrics services)
 
 ### Get Transactions
 
@@ -194,8 +194,8 @@ Gets the estimated network space and formats it to a readable version using Form
 //import (
 //    "log"
 //
-//    "github.com/chia-network/go-chia-libs/pkg/rpc"
-//    "github.com/chia-network/go-chia-libs/pkg/util"
+//    "github.com/forks-lab/go-stai-libs/pkg/rpc"
+//    "github.com/forks-lab/go-stai-libs/pkg/util"
 //)
 
 state, _, err := client.FullNodeService.GetBlockchainState()

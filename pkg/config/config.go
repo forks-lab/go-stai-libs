@@ -9,9 +9,9 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
-// ChiaConfig the chia config.yaml
-type ChiaConfig struct {
-	ChiaRoot        string
+// StaiConfig the STAI config.yaml
+type StaiConfig struct {
+	StaiRoot        string
 	DaemonPort      uint16          `yaml:"daemon_port"`
 	DaemonSSL       SSLConfig       `yaml:"daemon_ssl"`
 	Farmer          FarmerConfig    `yaml:"farmer"`
@@ -73,9 +73,9 @@ type SSLConfig struct {
 	PublicKey  string `yaml:"public_key"`
 }
 
-// GetChiaConfig returns a struct containing the config.yaml values
-func GetChiaConfig() (*ChiaConfig, error) {
-	rootPath, err := GetChiaRootPath()
+// GetStaiConfig returns a struct containing the config.yaml values
+func GetStaiConfig() (*StaiConfig, error) {
+	rootPath, err := GetStaiRootPath()
 	if err != nil {
 		return nil, err
 	}
@@ -90,22 +90,22 @@ func GetChiaConfig() (*ChiaConfig, error) {
 		return nil, err
 	}
 
-	config := &ChiaConfig{}
+	config := &StaiConfig{}
 
 	err = yaml.Unmarshal(configBytes, config)
 	if err != nil {
 		return nil, err
 	}
 
-	config.ChiaRoot = rootPath
+	config.StaiRoot = rootPath
 	config.fillDatabasePath()
 
 	return config, nil
 }
 
-// GetChiaRootPath returns the root path for the chia installation
-func GetChiaRootPath() (string, error) {
-	if root, ok := os.LookupEnv("CHIA_ROOT"); ok {
+// GetStaiRootPath returns the root path for the STAI installation
+func GetStaiRootPath() (string, error) {
+	if root, ok := os.LookupEnv("STAI_ROOT"); ok {
 		return root, nil
 	}
 
@@ -114,16 +114,16 @@ func GetChiaRootPath() (string, error) {
 		return "", err
 	}
 
-	root := filepath.Join(home, ".chia", "mainnet")
+	root := filepath.Join(home, ".stai", "mainnet")
 
 	return root, nil
 }
 
-// GetFullPath returns the full path to a particular filename within CHIA_ROOT
-func (c *ChiaConfig) GetFullPath(filename string) string {
-	return filepath.Join(c.ChiaRoot, filename)
+// GetFullPath returns the full path to a particular filename within STAI_ROOT
+func (c *StaiConfig) GetFullPath(filename string) string {
+	return filepath.Join(c.StaiRoot, filename)
 }
 
-func (c *ChiaConfig) fillDatabasePath() {
+func (c *StaiConfig) fillDatabasePath() {
 	c.FullNode.DatabasePath = strings.Replace(c.FullNode.DatabasePath, "CHALLENGE", c.FullNode.SelectedNetwork, 1)
 }

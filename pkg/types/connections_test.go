@@ -6,7 +6,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/chia-network/go-chia-libs/pkg/types"
+	"github.com/forks-lab/go-stai-libs/pkg/types"
 )
 
 // TestIPv4 Ensures ipv4 addresses unmarshal correctly
@@ -28,7 +28,7 @@ func TestStandardIPV6(t *testing.T) {
 }
 
 // TestBracketWrappedIPV6 Tests for the case of an ipv6 address being wrapped in []
-// Some methods respond with ipv6 addresses this way in Chia
+// Some methods respond with ipv6 addresses this way in STAI
 func TestBracketWrappedIPV6(t *testing.T) {
 	data := []byte(`{"peer_host":"[2606:4700:4700::1111]"}`)
 	connections := &types.Connection{}
